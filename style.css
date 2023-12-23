@@ -1,3 +1,43 @@
 body {
   background-color: #f3f2fa;
 }
+
+.homepage-container {
+  padding: 144px 76px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.header-container img {
+  width: 624px;
+  height: 200px;
+}
+
+.homepage-header {
+  color: #1a1a1f;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.filters a {
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 8px 16px;
+}
