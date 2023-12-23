@@ -1,5 +1,6 @@
 const author = getElement("author-input");
 const header = getElement("header-input");
+const description = getElement("description-input");
 
 if (loggedIn === null || loggedIn === false) {
   window.location.href = "/";
@@ -53,5 +54,19 @@ header.addEventListener("keyup", (e) => {
     filters.style.color = "#14D81C";
     header.style.background = "#F8FFF8";
     header.style.border = "1px solid #14D81C";
+  }
+});
+
+description.addEventListener("keyup", (e) => {
+  const filters = e.target.nextElementSibling;
+
+  if (e.target.value.trim().split(" ").join("").length < 4) {
+    filters.style.color = "#EA1919";
+    description.style.background = "#FAF2F3";
+    description.style.border = "1px solid #EA1919";
+  } else if (e.target.value.trim().split(" ").join("").length > 3) {
+    filters.style.color = "#14D81C";
+    description.style.background = "#F8FFF8";
+    description.style.border = "1px solid #14D81C";
   }
 });
