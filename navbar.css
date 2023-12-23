@@ -138,3 +138,14 @@ p {
   font-weight: 400;
   line-height: 20px;
 }
+
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.success img {
+  margin-bottom: 16px;
+}

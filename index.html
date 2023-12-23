@@ -24,24 +24,33 @@
         id="close-icon"
       />
 
-      <h2 class="login-header">შესვლა</h2>
-      <label for="login-input" class="login-input">
-        <span>ელ-ფოსტა</span>
-        <input
-          type="text"
-          name="login-input"
-          id="login-input"
-          class="login"
-          placeholder="Example@redberry.ge"
-        />
-      </label>
+      <div id="login-modal">
+        <h2 class="login-header">შესვლა</h2>
+        <label for="login-input" class="login-input">
+          <span>ელ-ფოსტა</span>
+          <input
+            type="text"
+            name="login-input"
+            id="login-input"
+            class="login"
+            placeholder="Example@redberry.ge"
+          />
+        </label>
 
-      <div class="error invincible" id="error">
-        <img src="./assets/danger-icon.svg" alt="danger icon" />
-        <p class="error-text">მეილი უნდა მთავრდებოდეს @redberry.ge-ით</p>
+        <div class="error invincible" id="error">
+          <img src="./assets/danger-icon.svg" alt="danger icon" />
+          <p class="error-text">მეილი უნდა მთავრდებოდეს @redberry.ge-ით</p>
+        </div>
+
+        <button class="login-button" id="form-button">შესვლა</button>
       </div>
 
-      <button class="login-button" id="form-button">შესვლა</button>
+      <div id="success-modal" class="success invincible">
+        <img src="./assets/success-icon.svg" alt="success icon" />
+        <h2 class="login-header">წარმატებული ავტორიზაცია</h2>
+
+        <button class="login-button" id="success-button">კარგი</button>
+      </div>
     </div>
 
     <script src="navbar.js"></script>
