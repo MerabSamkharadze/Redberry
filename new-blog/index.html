@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="navbar.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./../navbar.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="navbar-container">
       <a href="/index.html">
-        <img src="./assets/logo.png" alt="Redberry logo"
-      /></a>
+        <img src="./../assets/logo.png" alt="Redberry logo" />
+      </a>
       <button class="navbar-container-button" id="login-button">შესვლა</button>
       <a
         href="/new-blog/index.html"
@@ -24,7 +24,7 @@
     <div class="invincible" id="overlay"></div>
     <div class="login-form invincible" id="login-form">
       <img
-        src="./assets/close-icon.svg"
+        src="./../assets/close-icon.svg"
         alt="close icon"
         class="close-icon"
         id="close-icon"
@@ -44,7 +44,7 @@
         </label>
 
         <div class="error invincible" id="error">
-          <img src="./assets/danger-icon.svg" alt="danger icon" />
+          <img src="./../assets/danger-icon.svg" alt="danger icon" />
           <p class="error-text">მეილი უნდა მთავრდებოდეს @redberry.ge-ით</p>
         </div>
 
@@ -52,13 +52,13 @@
       </div>
 
       <div id="success-modal" class="success invincible">
-        <img src="./assets/success-icon.svg" alt="success icon" />
+        <img src="./../assets/success-icon.svg" alt="success icon" />
         <h2 class="login-header">წარმატებული ავტორიზაცია</h2>
 
         <button class="login-button" id="success-button">კარგი</button>
       </div>
     </div>
 
-    <script src="navbar.js"></script>
+    <script src="../navbar.js"></script>
   </body>
 </html>

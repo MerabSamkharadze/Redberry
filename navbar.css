@@ -23,6 +23,10 @@ p {
   justify-content: space-between;
 }
 
+.navbar-container a {
+  cursor: pointer;
+}
+
 .navbar-container-button {
   background-color: #5d37f3;
   border: none;
@@ -31,6 +35,7 @@ p {
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .invincible {
