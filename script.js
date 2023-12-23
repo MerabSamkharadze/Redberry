@@ -16,7 +16,7 @@ const fetchCategories = async () => {
   categories.data.forEach((category) => {
     const aTag = document.createElement("a");
 
-    aTag.href = `/?filter=${category.title}`;
+    aTag.href = `./?filter=${category.title}`;
 
     aTag.style.color = category.text_color;
 
@@ -84,7 +84,7 @@ const fetchBlogs = async () => {
 
       aTag.classList.add("blog-a");
 
-      aTag.href = `/blog?id=${blog.id}`;
+      aTag.href = `./blog?id=${blog.id}`;
 
       aTag.innerHTML = `სრულად ნახვა <img src='./assets/blue-arrow.svg' alt='blue arrow' />`;
 
@@ -105,7 +105,7 @@ const fetchBlogs = async () => {
       blog.categories.forEach((category) => {
         const aTag = document.createElement("a");
 
-        aTag.href = `/?filter=${category.title}`;
+        aTag.href = `./?filter=${category.title}`;
 
         aTag.style.color = category.text_color;
 
