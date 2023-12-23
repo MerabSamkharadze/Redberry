@@ -4,6 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="navbar-container">
+      <img src="/assets/logo.png" alt="Redberry logo" />
+      <button class="navbar-container-button" id="login-button">შესვლა</button>
+      <button class="navbar-container-button invincible" id="blog-add-button">
+        დაამატე ბლოგი
+      </button>
+    </div>
+    <div class="invincible" id="overlay"></div>
+    <div class="login-form invincible" id="login-form">
+      <img
+        src="/assets/close-icon.svg"
+        alt="close icon"
+        class="close-icon"
+        id="close-icon"
+      />
+
+      <h2 class="login-header">შესვლა</h2>
+      <label for="login-input" class="login-input">
+        <span>ელ-ფოსტა</span>
+        <input type="text" name="login-input" id="login-input" />
+      </label>
+    </div>
+
+    <script src="navbar.js"></script>
+  </body>
 </html>
