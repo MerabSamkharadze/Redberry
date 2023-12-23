@@ -3,7 +3,9 @@ body {
 }
 
 .homepage-container {
-  padding: 144px 76px;
+  padding: 144px 0px;
+  max-width: 1288px;
+  margin: 0 auto;
 }
 
 .header-container {
