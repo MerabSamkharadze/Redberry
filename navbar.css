@@ -1,12 +1,15 @@
 html,
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body,
 h2,
-p {
+p,
+h1 {
   margin: 0;
+  font-family: sans-serif;
 }
 
 .navbar-container {
@@ -106,21 +109,22 @@ p {
   margin-top: 24px;
 }
 
-.login {
+.input {
   border-radius: 12px;
-  border: 1.5px solid #5d37f3;
-  background: #f7f7ff;
+  border: 1px solid #e4e3eb;
+  background: #fcfcfd;
   height: 44px;
   width: 100%;
   padding: 16px 12px;
 }
 
-.login:focus {
+.input:focus {
   border: 1.5px solid #5d37f3;
+  background: #f7f7ff;
   outline: none;
 }
 
-.login::placeholder {
+.input::placeholder {
   color: #85858d;
   font-family: FiraGO;
   font-size: 14px;

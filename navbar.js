@@ -60,6 +60,8 @@ formButton.addEventListener("click", () => {
   if (loginInput.value.trim() === "") {
     error.classList.remove("invincible");
     error.lastElementChild.innerText = "ველი სავალდებულოა";
+    loginInput.style.background = "#FAF2F3";
+    loginInput.style.border = "1px solid #EA1919";
     return;
   } else if (!loginInput.value.endsWith("@redberry.ge")) {
     return;
@@ -71,10 +73,15 @@ formButton.addEventListener("click", () => {
 loginInput.addEventListener("keyup", (e) => {
   if (e.target.value.endsWith("@redberry.ge")) {
     error.classList.add("invincible");
+    loginInput.style.background = "#f7f7ff";
+    loginInput.style.border = "1px solid #5d37f3";
   } else {
     error.classList.remove("invincible");
     error.lastElementChild.innerText =
       "მეილი უნდა მთავრდებოდეს @redberry.ge-ით";
+
+    loginInput.style.background = "#FAF2F3";
+    loginInput.style.border = "1px solid #EA1919";
   }
 });
 

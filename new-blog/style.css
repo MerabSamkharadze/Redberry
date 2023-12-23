@@ -1,0 +1,39 @@
+body {
+  background-color: #f3f2fa;
+}
+
+.back-button {
+  position: fixed;
+  top: 120px;
+  left: 76px;
+}
+
+.add-new-blog {
+  width: 100%;
+  padding: 120px 360px;
+}
+
+.add-blog-header {
+  color: #1a1a1f;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 40px;
+}
+
+.add-blog-label {
+  color: #1a1a1f;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.inputs-container {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
