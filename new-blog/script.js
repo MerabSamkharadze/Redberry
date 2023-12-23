@@ -1,6 +1,10 @@
 const author = getElement("author-input");
 const header = getElement("header-input");
 
+if (loggedIn === null || loggedIn === false) {
+  window.location.href = "/";
+}
+
 author.addEventListener("keyup", (e) => {
   const filters = e.target.nextElementSibling.children;
 
