@@ -67,16 +67,35 @@
       <h1 class="add-blog-header">ბლოგის დამატება</h1>
 
       <div class="inputs-container">
-        <div>
+        <div class="input-data">
           <label class="add-blog-label">ავტორი *</label>
+          <input
+            type="text"
+            id="author-input"
+            class="input"
+            placeholder="შეიყვნეთ ავტორი"
+          />
+          <ul>
+            <li>მინიმუმ 4 სიმბოლო</li>
+            <li>მინიმუმ ორი სიტყვა</li>
+            <li>მხოლოდ ქართული სიმბოლოები</li>
+          </ul>
         </div>
 
-        <div>
+        <div class="input-data">
           <label class="add-blog-label">სათური *</label>
+          <input
+            type="text"
+            id="header-input"
+            class="input"
+            placeholder="შეიყვნეთ სათაური"
+          />
+          <p>მინიმუმ 4 სიმბოლო</p>
         </div>
       </div>
     </div>
 
     <script src="../navbar.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
