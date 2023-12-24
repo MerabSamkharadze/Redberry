@@ -1,0 +1,9 @@
+body {
+  background-color: #f3f2fa;
+}
+
+.back-button {
+  position: fixed;
+  top: 120px;
+  left: 76px;
+}
