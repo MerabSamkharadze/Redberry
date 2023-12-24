@@ -1,3 +1,8 @@
+html,
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #f3f2fa;
 }
@@ -79,6 +84,33 @@ body {
   gap: 32px;
   overflow: scroll;
   margin: 0 auto 200px auto;
+}
+
+.similar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1288px;
+  margin: 0 auto 38px auto;
+}
+
+.similar h2 {
+  color: #1a1a1f;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.similar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.similar img {
+  cursor: pointer;
 }
 
 .hidden-scroll::-webkit-scrollbar {

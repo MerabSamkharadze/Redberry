@@ -7,6 +7,9 @@ const blogContainer = getElement("new-blog-container");
 
 const similarBlogs = getElement("similar-blogs");
 
+const arrowRight = getElement("arrow-right");
+const arrowLeft = getElement("arrow-left");
+
 const fetchBlogInfo = async () => {
   const res = await fetch(
     `https://api.blog.redberryinternship.ge/api/blogs/${chosenId}`,
@@ -160,6 +163,36 @@ const fetchBlogInfo = async () => {
       similarBlogs.appendChild(childBlog);
     }
   });
+
+  if (similarBlogs.childElementCount < 4) {
+    arrowRight.src = "./../assets/arrow-right-grey.svg";
+  }
 };
 
 fetchBlogInfo();
+
+const scrolled = similarBlogs.scrollWidth;
+
+arrowRight.addEventListener("click", () => {
+  similarBlogs.scrollLeft += 440;
+
+  if (similarBlogs.scrollLeft >= scrolled) {
+    arrowRight.src = "./../assets/arrow-right-grey.svg";
+  }
+
+  if (similarBlogs.childElementCount > 3) {
+    arrowLeft.src = "./../assets/arrow-left-blue.svg";
+  }
+});
+
+arrowLeft.addEventListener("click", () => {
+  similarBlogs.scrollLeft -= 440;
+
+  if (similarBlogs.scrollLeft - 440 <= 0) {
+    arrowLeft.src = "./../assets/arrow-left-grey.svg";
+  }
+
+  if (similarBlogs.childElementCount > 3) {
+    arrowRight.src = "./../assets/arrow-right-blue.svg";
+  }
+});
