@@ -1,5 +1,5 @@
 const apiKey =
-  "ed94de27207ab408ae5fd225c02b0b690a54073dd4e26b98939d944d69801185";
+  "0ef38445fff55adcfe4bc2d673c9192ecc741377890587ab4b934520c2e908dc";
 
 const filterContainer = getElement("filters");
 const blogsContainer = getElement("blogs");
@@ -84,7 +84,7 @@ const fetchBlogs = async () => {
 
       aTag.classList.add("blog-a");
 
-      aTag.href = `./blog?id=${blog.id}`;
+      aTag.href = `./blog/?id=${blog.id}`;
 
       aTag.innerHTML = `სრულად ნახვა <img src='./assets/blue-arrow.svg' alt='blue arrow' />`;
 
