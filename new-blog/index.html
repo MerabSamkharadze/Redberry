@@ -66,9 +66,25 @@
     <div class="add-new-blog">
       <h1 class="add-blog-header">ბლოგის დამატება</h1>
 
-      <div class="add-img-container">
-        <img src="./../assets/blog-img.svg" alt="blog img" />
-        <p>ჩააგდე ფაილი აქ ან აირჩიეთ ფაილი</p>
+      <div class="add-img-container" id="image-container">
+        <div id="image-first">
+          <img src="./../assets/blog-img.svg" alt="blog img" />
+          <p>ჩააგდე ფაილი აქ ან აირჩიეთ ფაილი</p>
+        </div>
+
+        <div id="image-second" class="image-second invincible">
+          <div>
+            <img src="./../assets/gallery.svg" alt="blog img" />
+            <p id="image-name">ჩააგდე</p>
+          </div>
+
+          <img
+            src="./../assets/close-icon.svg"
+            alt="close icon"
+            id="image-delete-icon"
+          />
+        </div>
+        <input type="file" name="image" id="image" class="file" />
       </div>
 
       <div class="inputs-container">

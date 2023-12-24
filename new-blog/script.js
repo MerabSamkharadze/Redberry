@@ -98,3 +98,35 @@ date.addEventListener("change", (e) => {
     date.style.border = "1px solid #14D81C";
   }
 });
+
+const imageFirst = getElement("image-first");
+const imageSecond = getElement("image-second");
+
+const imageContainer = getElement("image-container");
+const image = getElement("image");
+const imageName = getElement("image-name");
+const imageDelete = getElement("image-delete-icon");
+
+image.addEventListener("change", (e) => {
+  imageContainer.style.height = "56px";
+  imageContainer.style.background = "#e9e9eb";
+  imageContainer.style.border = "none";
+
+  imageFirst.classList.add("invincible");
+
+  imageSecond.classList.remove("invincible");
+
+  imageName.innerText = e.target.files[0].name;
+});
+
+imageDelete.addEventListener("click", () => {
+  imageContainer.style.height = "180px";
+  imageContainer.style.background = "#f4f3ff";
+  imageContainer.style.border = "1px dashed #85858d";
+
+  imageFirst.classList.remove("invincible");
+
+  imageSecond.classList.add("invincible");
+
+  image.value = "";
+});
