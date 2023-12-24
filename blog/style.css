@@ -70,3 +70,22 @@ body {
   cursor: pointer;
   padding: 8px 16px;
 }
+
+.similar-blogs {
+  width: 1288px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 32px;
+  overflow: scroll;
+  margin: 0 auto 200px auto;
+}
+
+.hidden-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hidden-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

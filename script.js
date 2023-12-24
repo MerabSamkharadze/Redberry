@@ -124,8 +124,6 @@ const fetchBlogs = async () => {
       blogsContainer.appendChild(childBlog);
     }
   });
-
-  console.log(data.data);
 };
 
 fetchBlogs();
