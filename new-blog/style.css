@@ -38,6 +38,16 @@ body {
   margin-top: 24px;
   display: flex;
   gap: 24px;
+  position: relative;
+}
+
+.error-email {
+  position: absolute;
+  bottom: -30px;
+}
+
+.error-email p {
+  margin: 0;
 }
 
 .input-data {

@@ -1,6 +1,9 @@
 const author = getElement("author-input");
 const header = getElement("header-input");
 const description = getElement("description-input");
+const emailInput = getElement("new-email-input");
+const errorEmail = getElement("error-email");
+const date = getElement("date-input");
 
 if (loggedIn === null || loggedIn === false) {
   window.location.href = "/";
@@ -68,5 +71,30 @@ description.addEventListener("keyup", (e) => {
     filters.style.color = "#14D81C";
     description.style.background = "#F8FFF8";
     description.style.border = "1px solid #14D81C";
+  }
+});
+
+emailInput.addEventListener("keyup", (e) => {
+  if (e.target.value.endsWith("@redberry.ge")) {
+    errorEmail.classList.add("invincible");
+    emailInput.style.background = "#F8FFF8";
+    emailInput.style.border = "1px solid #14D81C";
+  } else {
+    errorEmail.classList.remove("invincible");
+    errorEmail.lastElementChild.innerText =
+      "მეილი უნდა მთავრდებოდეს @redberry.ge-ით";
+
+    emailInput.style.background = "#FAF2F3";
+    emailInput.style.border = "1px solid #EA1919";
+  }
+});
+
+date.addEventListener("change", (e) => {
+  if (e.target.value === "") {
+    date.style.background = "#FAF2F3";
+    date.style.border = "1px solid #EA1919";
+  } else {
+    date.style.background = "#F8FFF8";
+    date.style.border = "1px solid #14D81C";
   }
 });
