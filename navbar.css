@@ -46,13 +46,16 @@ h1 {
   display: none !important;
 }
 
-#overlay {
+#overlay,
+#overlay-2 {
   opacity: 0.24;
   background: #1a1a1f;
   position: fixed;
   height: 100vh;
   width: 100vw;
-  z-index: 1;
+  z-index: 10;
+  top: 0;
+  left: 0;
 }
 
 .login-form {
@@ -64,7 +67,7 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 12;
 }
 
 .close-icon {
@@ -98,7 +101,9 @@ h1 {
   line-height: 20px;
 }
 
-.login-button {
+.login-button,
+.login-a {
+  text-decoration: none;
   background-color: #5d37f3;
   border: none;
   color: white;

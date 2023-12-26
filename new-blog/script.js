@@ -265,6 +265,9 @@ window.addEventListener("click", (e) => {
 
 const addBlog = getElement("add-blog");
 
+const successModalOpen = getElement("success-modal-large");
+const overlay2 = getElement("overlay-2");
+
 addBlog.addEventListener("click", async () => {
   if (
     author.value.trim().split(" ").join("").length < 4 ||
@@ -328,6 +331,26 @@ addBlog.addEventListener("click", async () => {
   });
 
   if (res.status === 204) {
-    console.log(1);
+    localStorage.removeItem("author");
+    localStorage.removeItem("header");
+    localStorage.removeItem("description");
+    localStorage.removeItem("email");
+    localStorage.removeItem("date");
+    localStorage.removeItem("dropdown");
+
+    overlay2.classList.remove("invincible");
+    successModalOpen.classList.remove("invincible");
   }
+});
+
+const closeIconSuccess = getElement("close-icon-success");
+
+closeIconSuccess.addEventListener("click", () => {
+  overlay2.classList.add("invincible");
+  successModalOpen.classList.add("invincible");
+});
+
+overlay2.addEventListener("click", () => {
+  overlay2.classList.add("invincible");
+  successModalOpen.classList.add("invincible");
 });
