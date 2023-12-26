@@ -1,3 +1,6 @@
+const apiKey =
+  "0ef38445fff55adcfe4bc2d673c9192ecc741377890587ab4b934520c2e908dc";
+
 const author = getElement("author-input");
 const header = getElement("header-input");
 const description = getElement("description-input");
@@ -204,6 +207,8 @@ const fetchCategories = async () => {
 
       insideP.innerText = category.title;
 
+      insideP.setAttribute("id", category.id);
+
       insideP.classList.add("inside-p");
 
       const image = document.createElement("img");
@@ -255,5 +260,74 @@ const dropContainer = getElement("dropdown-container");
 window.addEventListener("click", (e) => {
   if (!dropContainer.contains(e.target)) {
     dropdown.classList.add("invincible");
+  }
+});
+
+const addBlog = getElement("add-blog");
+
+addBlog.addEventListener("click", async () => {
+  if (
+    author.value.trim().split(" ").join("").length < 4 ||
+    author.value.trim().split(" ").length < 2 ||
+    !/^[ა-ჰ ]+$/.test(author.value)
+  ) {
+    return;
+  }
+
+  if (
+    header.value.trim().split(" ").join("").length < 4 ||
+    description.value.trim().split(" ").join("").length < 4
+  ) {
+    return;
+  }
+
+  if (date.value === "") {
+    return;
+  }
+
+  const dropElements = selectedDropdown.querySelectorAll("p");
+
+  if (dropElements.length < 1) {
+    return;
+  }
+
+  if (image.value === "") {
+    return;
+  }
+
+  const dropdownIds = Array.from(dropElements).map((el) =>
+    el.getAttribute("id")
+  );
+
+  const sendMail =
+    !emailInput.value.endsWith("@redberry.ge") && emailInput.value.length < 1;
+
+  const formData = new FormData();
+
+  formData.append("title", header.value);
+  formData.append("description", description.value);
+  formData.append("publish_date", date.value);
+  formData.append("author", author.value);
+  formData.append("email", sendMail ? emailInput.value : "");
+
+  dropdownIds.forEach((categoryId) => {
+    formData.append("categories[]", categoryId);
+  });
+
+  const imageFile = image.files[0];
+  if (imageFile) {
+    formData.append("image", imageFile);
+  }
+
+  const res = await fetch("https://api.blog.redberryinternship.ge/api/blogs", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + apiKey,
+    },
+    body: formData,
+  });
+
+  if (res.status === 204) {
+    console.log(1);
   }
 });
