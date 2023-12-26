@@ -9,8 +9,20 @@ if (loggedIn === null || loggedIn === false) {
   window.location.href = "/";
 }
 
+author.value = localStorage.getItem("author");
+
+header.value = localStorage.getItem("header");
+
+description.value = localStorage.getItem("description");
+
+emailInput.value = localStorage.getItem("email");
+
+date.value = localStorage.getItem("date");
+
 author.addEventListener("keyup", (e) => {
   const filters = e.target.nextElementSibling.children;
+
+  localStorage.setItem("author", e.target.value);
 
   if (e.target.value.trim().split(" ").join("").length < 4) {
     filters[0].style.color = "#EA1919";
@@ -49,6 +61,8 @@ author.addEventListener("keyup", (e) => {
 header.addEventListener("keyup", (e) => {
   const filters = e.target.nextElementSibling;
 
+  localStorage.setItem("header", e.target.value);
+
   if (e.target.value.trim().split(" ").join("").length < 4) {
     filters.style.color = "#EA1919";
     header.style.background = "#FAF2F3";
@@ -63,6 +77,8 @@ header.addEventListener("keyup", (e) => {
 description.addEventListener("keyup", (e) => {
   const filters = e.target.nextElementSibling;
 
+  localStorage.setItem("description", e.target.value);
+
   if (e.target.value.trim().split(" ").join("").length < 4) {
     filters.style.color = "#EA1919";
     description.style.background = "#FAF2F3";
@@ -75,6 +91,8 @@ description.addEventListener("keyup", (e) => {
 });
 
 emailInput.addEventListener("keyup", (e) => {
+  localStorage.setItem("email", e.target.value);
+
   if (e.target.value.endsWith("@redberry.ge")) {
     errorEmail.classList.add("invincible");
     emailInput.style.background = "#F8FFF8";
@@ -90,6 +108,8 @@ emailInput.addEventListener("keyup", (e) => {
 });
 
 date.addEventListener("change", (e) => {
+  localStorage.setItem("date", e.target.value);
+
   if (e.target.value === "") {
     date.style.background = "#FAF2F3";
     date.style.border = "1px solid #EA1919";
@@ -135,6 +155,26 @@ const dropdown = getElement("dropdown");
 const selectedDropdown = getElement("selected-dropdown");
 const dropdownInput = getElement("dropdown-input");
 
+const dropSaved = localStorage.getItem("dropdown");
+
+if (dropSaved) {
+  selectedDropdown.innerHTML = dropSaved;
+
+  selectedDropdown.querySelectorAll("p").forEach((pTag) => {
+    pTag.querySelector("img").addEventListener("click", () => {
+      pTag.remove();
+
+      localStorage.setItem("dropdown", selectedDropdown.innerHTML);
+
+      if (selectedDropdown.innerText === "") {
+        selectedDropdown.innerText = "შეიყვნეთ სათაური";
+        dropdownInput.style.background = "#FAF2F3";
+        dropdownInput.style.border = "1px solid #EA1919";
+      }
+    });
+  });
+}
+
 const fetchCategories = async () => {
   const res = await fetch(
     "https://api.blog.redberryinternship.ge/api/categories"
@@ -173,6 +213,8 @@ const fetchCategories = async () => {
       image.addEventListener("click", () => {
         insideP.remove();
 
+        localStorage.setItem("dropdown", selectedDropdown.innerHTML);
+
         if (selectedDropdown.innerText === "") {
           selectedDropdown.innerText = "შეიყვნეთ სათაური";
           dropdownInput.style.background = "#FAF2F3";
@@ -193,6 +235,8 @@ const fetchCategories = async () => {
           dropdownInput.style.background = "#F8FFF8";
           dropdownInput.style.border = "1px solid #14D81C";
         }
+
+        localStorage.setItem("dropdown", selectedDropdown.innerHTML);
       }
     });
 
@@ -210,7 +254,6 @@ const dropContainer = getElement("dropdown-container");
 
 window.addEventListener("click", (e) => {
   if (!dropContainer.contains(e.target)) {
-    console.log(1);
     dropdown.classList.add("invincible");
   }
 });
