@@ -1,5 +1,5 @@
 body {
-  background-color: #f3f2fa;
+  background-color: #fbfaff;
 }
 
 .back-button {
@@ -52,6 +52,7 @@ body {
 
 .input-data {
   flex: 1;
+  position: relative;
 }
 
 ul {
@@ -81,6 +82,12 @@ p {
 }
 
 .textarea-input:focus {
+  border: 1.5px solid #5d37f3;
+  background: #f7f7ff;
+  outline: none;
+}
+
+.dropdown-input:hover {
   border: 1.5px solid #5d37f3;
   background: #f7f7ff;
   outline: none;
@@ -171,4 +178,29 @@ p {
 #image-delete-icon {
   z-index: 3;
   cursor: pointer;
+}
+
+.dropdown {
+  border-radius: 12px;
+  border: 1px solid #e4e3eb;
+  background: #fff;
+  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 144px;
+  padding: 16px;
+  top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow-y: scroll;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  border-radius: 30px;
 }

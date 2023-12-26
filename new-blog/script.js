@@ -109,7 +109,7 @@ const imageDelete = getElement("image-delete-icon");
 
 image.addEventListener("change", (e) => {
   imageContainer.style.height = "56px";
-  imageContainer.style.background = "#e9e9eb";
+  imageContainer.style.background = "#F2F2FA";
   imageContainer.style.border = "none";
 
   imageFirst.classList.add("invincible");
@@ -129,4 +129,40 @@ imageDelete.addEventListener("click", () => {
   imageSecond.classList.add("invincible");
 
   image.value = "";
+});
+
+const dropdown = getElement("dropdown");
+
+const fetchCategories = async () => {
+  const res = await fetch(
+    "https://api.blog.redberryinternship.ge/api/categories"
+  );
+
+  const categories = await res.json();
+
+  categories.data.forEach((category) => {
+    const p = document.createElement("p");
+
+    p.classList.add("dropdown-item");
+
+    p.style.color = category.text_color;
+
+    p.style.background = category.background_color;
+
+    p.innerText = category.title;
+
+    dropdown.appendChild(p);
+  });
+};
+
+fetchCategories();
+
+const dropdownInput = getElement("dropdown-input");
+
+dropdownInput.addEventListener("click", () => {
+  if (dropdown.classList.contains("invincible")) {
+    dropdown.classList.remove("invincible");
+  } else {
+    dropdown.classList.add("invincible");
+  }
 });

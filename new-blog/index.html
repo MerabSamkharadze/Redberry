@@ -94,7 +94,7 @@
             type="text"
             id="author-input"
             class="input"
-            placeholder="შეიყვნეთ ავტორი"
+            placeholder="შეიყვანეთ ავტორი"
           />
           <ul>
             <li>მინიმუმ 4 სიმბოლო</li>
@@ -109,7 +109,7 @@
             type="text"
             id="header-input"
             class="input"
-            placeholder="შეიყვნეთ სათაური"
+            placeholder="შეიყვანეთ სათაური"
           />
           <p>მინიმუმ 4 სიმბოლო</p>
         </div>
@@ -123,7 +123,7 @@
             cols="30"
             rows="6"
             class="textarea-input"
-            placeholder="შეიყვნანეთ აღწერა"
+            placeholder="შეიყვანეთ აღწერა"
           ></textarea>
           <p>მინიმუმ 4 სიმბოლო</p>
         </div>
@@ -140,12 +140,9 @@
         </div>
         <div class="input-data">
           <label class="add-blog-label">კატეგორია *</label>
-          <input
-            type="search"
-            id="category-input"
-            class="input"
-            placeholder="შეიყვნეთ სათაური"
-          />
+          <div class="input dropdown-input" id="dropdown-input"></div>
+
+          <div class="dropdown invincible" id="dropdown"></div>
         </div>
       </div>
       <div class="inputs-container">
@@ -154,7 +151,7 @@
           <input
             type="email"
             id="new-email-input"
-            class="input"
+            class=""
             placeholder="Example@redberry.ge"
           />
 
