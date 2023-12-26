@@ -138,9 +138,14 @@
             placeholder="შეიყვნეთ ავტორი"
           />
         </div>
-        <div class="input-data">
+        <div class="input-data" id="dropdown-container">
           <label class="add-blog-label">კატეგორია *</label>
-          <div class="input dropdown-input" id="dropdown-input"></div>
+          <div class="input dropdown-input" id="dropdown-input">
+            <div class="hidden-scroll" id="selected-dropdown">
+              შეიყვნეთ სათაური
+            </div>
+            <img src="./../assets/arrow-down.svg" alt="arrow down" />
+          </div>
 
           <div class="dropdown invincible" id="dropdown"></div>
         </div>
@@ -151,7 +156,7 @@
           <input
             type="email"
             id="new-email-input"
-            class=""
+            class="input"
             placeholder="Example@redberry.ge"
           />
 

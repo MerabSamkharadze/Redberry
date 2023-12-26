@@ -132,6 +132,8 @@ imageDelete.addEventListener("click", () => {
 });
 
 const dropdown = getElement("dropdown");
+const selectedDropdown = getElement("selected-dropdown");
+const dropdownInput = getElement("dropdown-input");
 
 const fetchCategories = async () => {
   const res = await fetch(
@@ -151,18 +153,64 @@ const fetchCategories = async () => {
 
     p.innerText = category.title;
 
+    p.addEventListener("click", () => {
+      const insideP = document.createElement("p");
+
+      insideP.classList.add("dropdown-item");
+
+      insideP.style.color = category.text_color;
+
+      insideP.style.background = category.background_color;
+
+      insideP.innerText = category.title;
+
+      insideP.classList.add("inside-p");
+
+      const image = document.createElement("img");
+
+      image.src = "./../assets/add.svg";
+
+      image.addEventListener("click", () => {
+        insideP.remove();
+
+        if (selectedDropdown.innerText === "") {
+          selectedDropdown.innerText = "შეიყვნეთ სათაური";
+          dropdownInput.style.background = "#FAF2F3";
+          dropdownInput.style.border = "1px solid #EA1919";
+        }
+      });
+
+      insideP.appendChild(image);
+
+      if (!selectedDropdown.innerText.includes(category.title)) {
+        if (selectedDropdown.innerText === "შეიყვნეთ სათაური") {
+          selectedDropdown.innerText = "";
+          selectedDropdown.appendChild(insideP);
+          dropdownInput.style.background = "#F8FFF8";
+          dropdownInput.style.border = "1px solid #14D81C";
+        } else {
+          selectedDropdown.appendChild(insideP);
+          dropdownInput.style.background = "#F8FFF8";
+          dropdownInput.style.border = "1px solid #14D81C";
+        }
+      }
+    });
+
     dropdown.appendChild(p);
   });
 };
 
 fetchCategories();
 
-const dropdownInput = getElement("dropdown-input");
-
 dropdownInput.addEventListener("click", () => {
-  if (dropdown.classList.contains("invincible")) {
-    dropdown.classList.remove("invincible");
-  } else {
+  dropdown.classList.remove("invincible");
+});
+
+const dropContainer = getElement("dropdown-container");
+
+window.addEventListener("click", (e) => {
+  if (!dropContainer.contains(e.target)) {
+    console.log(1);
     dropdown.classList.add("invincible");
   }
 });
