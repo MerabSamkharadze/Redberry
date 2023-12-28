@@ -269,32 +269,49 @@ const successModalOpen = getElement("success-modal-large");
 const overlay2 = getElement("overlay-2");
 
 addBlog.addEventListener("click", async () => {
+  let ready = true;
+
   if (
     author.value.trim().split(" ").join("").length < 4 ||
     author.value.trim().split(" ").length < 2 ||
     !/^[ა-ჰ ]+$/.test(author.value)
   ) {
-    return;
+    author.style.background = "#FAF2F3";
+    author.style.border = "1px solid #EA1919";
+    ready = false;
   }
 
-  if (
-    header.value.trim().split(" ").join("").length < 4 ||
-    description.value.trim().split(" ").join("").length < 4
-  ) {
-    return;
+  if (header.value.trim().split(" ").join("").length < 4) {
+    header.style.background = "#FAF2F3";
+    header.style.border = "1px solid #EA1919";
+    ready = false;
+  }
+
+  if (description.value.trim().split(" ").join("").length < 4) {
+    description.style.background = "#FAF2F3";
+    description.style.border = "1px solid #EA1919";
+    ready = false;
   }
 
   if (date.value === "") {
-    return;
+    date.style.background = "#FAF2F3";
+    date.style.border = "1px solid #EA1919";
+    ready = false;
   }
 
   const dropElements = selectedDropdown.querySelectorAll("p");
 
   if (dropElements.length < 1) {
-    return;
+    dropdownInput.style.background = "#FAF2F3";
+    dropdownInput.style.border = "1px solid #EA1919";
+    ready = false;
   }
 
   if (image.value === "") {
+    ready = false;
+  }
+
+  if (!ready) {
     return;
   }
 
