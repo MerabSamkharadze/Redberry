@@ -16,7 +16,15 @@ const fetchCategories = async () => {
   categories.data.forEach((category) => {
     const aTag = document.createElement("a");
 
-    aTag.href = `./?filter=${category.title}`;
+    let filters = chosenFilter.split(",");
+
+    if (!filters.some((fil) => fil === category.title)) {
+      filters.push(category.title);
+    } else {
+      filters = filters.filter((el) => el !== category.title);
+    }
+
+    aTag.href = `./?filter=${filters.join(",")}`;
 
     aTag.style.color = category.text_color;
 
@@ -24,7 +32,7 @@ const fetchCategories = async () => {
 
     aTag.innerText = category.title;
 
-    if (chosenFilter === category.title) {
+    if (chosenFilter.split(",").some((fil) => fil === category.title)) {
       aTag.style.border = "2px solid #000";
     }
 
@@ -48,7 +56,9 @@ const fetchBlogs = async () => {
     const specificDate = new Date(blog.publish_date);
 
     if (
-      (blog.categories.some((category) => category.title === chosenFilter) ||
+      (blog.categories.some((category) =>
+        chosenFilter.includes(category.title)
+      ) ||
         chosenFilter === null) &&
       currentDate > specificDate
     ) {
@@ -104,8 +114,6 @@ const fetchBlogs = async () => {
 
       blog.categories.forEach((category) => {
         const aTag = document.createElement("a");
-
-        aTag.href = `./?filter=${category.title}`;
 
         aTag.style.color = category.text_color;
 

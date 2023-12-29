@@ -41,8 +41,11 @@ body {
   text-decoration: none;
   border: none;
   border-radius: 30px;
-  cursor: pointer;
   padding: 8px 16px;
+}
+
+.filters a {
+  cursor: pointer;
 }
 
 .blogs-container {
