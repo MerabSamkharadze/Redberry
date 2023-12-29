@@ -16,7 +16,7 @@ const fetchCategories = async () => {
   categories.data.forEach((category) => {
     const aTag = document.createElement("a");
 
-    let filters = chosenFilter.split(",");
+    let filters = chosenFilter ? chosenFilter.split(",") : [];
 
     if (!filters.some((fil) => fil === category.title)) {
       filters.push(category.title);
@@ -32,7 +32,7 @@ const fetchCategories = async () => {
 
     aTag.innerText = category.title;
 
-    if (chosenFilter.split(",").some((fil) => fil === category.title)) {
+    if (chosenFilter && chosenFilter.split(",").includes(category.title)) {
       aTag.style.border = "2px solid #000";
     }
 
@@ -56,10 +56,11 @@ const fetchBlogs = async () => {
     const specificDate = new Date(blog.publish_date);
 
     if (
-      (blog.categories.some((category) =>
-        chosenFilter.includes(category.title)
+      (blog.categories.some(
+        (category) => chosenFilter && chosenFilter.includes(category.title)
       ) ||
-        chosenFilter === null) &&
+        chosenFilter === null ||
+        chosenFilter === "") &&
       currentDate > specificDate
     ) {
       const image = document.createElement("img");
