@@ -71,10 +71,10 @@ formButton.addEventListener("click", () => {
 });
 
 loginInput.addEventListener("keyup", (e) => {
-  if (e.target.value.endsWith("@redberry.ge")) {
+  if (e.target.value.endsWith("@redberry.ge") && e.target.value.length > 12) {
     error.classList.add("invincible");
-    loginInput.style.background = "#f7f7ff";
-    loginInput.style.border = "1px solid #5d37f3";
+    loginInput.style.background = "#F8FFF8";
+    loginInput.style.border = "1px solid #14D81C";
   } else {
     error.classList.remove("invincible");
     error.lastElementChild.innerText =

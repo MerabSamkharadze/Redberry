@@ -96,7 +96,7 @@ description.addEventListener("keyup", (e) => {
 emailInput.addEventListener("keyup", (e) => {
   localStorage.setItem("email", e.target.value);
 
-  if (e.target.value.endsWith("@redberry.ge")) {
+  if (e.target.value.endsWith("@redberry.ge") && e.target.value.length > 12) {
     errorEmail.classList.add("invincible");
     emailInput.style.background = "#F8FFF8";
     emailInput.style.border = "1px solid #14D81C";
